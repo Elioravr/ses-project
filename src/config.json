@@ -1,0 +1,18 @@
+{
+  "welcome": {
+    "labels": {
+      "mainTitle": "Welcome",
+      "subTitle": "Where would you like to renovate in your house?"
+    },
+    "buttons": [
+      {
+        "text": "Exteior",
+        "src": "https://lh3.googleusercontent.com/QN3qAPpLsEQnBHtS6x8-3mjnL7duOkSrKSCjBEEMXaf5Lf-OUGKvYiwMp9hIICOFHUTg=h900"
+      },
+      {
+        "text": "Interior",
+        "src": "http://ecx.images-amazon.com/images/I/91VwILj26CL.jpg"
+      }
+    ]
+  }
+}

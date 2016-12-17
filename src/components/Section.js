@@ -5,9 +5,7 @@ import Button from './Button'
 
 export default class Section extends Component {
   static propTypes = {
-    content: PropTypes.isRequired,
-    // buttons: PropTypes.array.isRequired,
-    // src, text, action
+    content: PropTypes.object.isRequired,
     mainTitle: PropTypes.string,
     subTitle: PropTypes.string,
     hasBorderEffect: PropTypes.bool
@@ -62,13 +60,12 @@ export default class Section extends Component {
     const content = concat(this.props.content);
 
     return (
-      <div className="section-container">
-        this.renderMainTitle()
-        this.renderBorderBottom()
-        this.renderSubTitle()
+      <div className={`section-container ${this.state.loaded ? 'visible' : ''}`}>
+        {this.renderMainTitle()}
+        {this.renderBorderBottom()}
+        {this.renderSubTitle()}
         {content}
       </div>
     )
   }
 }
-Å

@@ -1,13 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
+import Button from './Button'
 import Section from './Section'
 
 export default class ButtonSection extends Component {
 
   static propTypes = {
     buttons: PropTypes.array.isRequired,
-    mainTitle: PropTypes.string,
-    subTitle: PropTypes.string,
+    labels: PropTypes.shape({
+      mainTitle: PropTypes.string,
+      subTitle: PropTypes.string,
+    }),
     hasBorderEffect: PropTypes.bool
   }
 
@@ -15,19 +18,27 @@ export default class ButtonSection extends Component {
     const {buttons} = this.props
 
     return buttons.map((button, index) => {
-      return <Button {...button}/>
+      const props = {
+        labels: {
+          text: button.text
+        }
+      }
+
+      return <Button key={index} {...props}/>
     })
   }
 
   renderContent() {
-    return <div className={`buttons-container ${this.state.loaded ? 'visible' : ''}`}>
-      this.renderButtons()
-    </div>
+    return (
+      <div className={`buttons-container`}>
+        {this.renderButtons()}
+      </div>
+    )
   }
 
   render() {
-    <Section
-      content={renderContent()}
+    return <Section
+      content={this.renderContent()}
       {...this.props}
     />
   }
