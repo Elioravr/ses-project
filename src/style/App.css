@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(https://homeinnovation.files.wordpress.com/2012/05/wpid-exterior-home-design-concept1.jpg);
+  background-size: 100% 100%;
+  filter: blur(5px);
+}
+
+.App {
+  font-family: 'Roboto', sans-serif;
+  padding: 30px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: rgb(220, 220, 220);
+  text-shadow: 1px 1px 0px rgba(150, 150, 150, 1);
+}
+
+.App .main-title {
+  font-family: 'Lobster', cursive;
+  font-size: 80px;
+}
+
+.border-bottom {
+  display: block;
+  width: 0px;
+  height: 1px;
+  transition: width 6s;
+  margin: auto;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  background: rgb(252, 252, 252);
+}
+
+.border-bottom.visible {
+  width: 100%;
+}
+
+.App .sub-title {
+  font-size: 20px;
+}
+
+.buttons-container {
+  padding: 30px;
+}
+
+.buttons-container .button {
+  line-height: 160px;
+  width: 300px;
+  margin: 10px 15px;
+  display: inline-block;
+  color: rgb(252, 252, 252);
+  font-size: 40px;
+  text-shadow: 1px 1px 0px black;
+  opacity: 1;
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.buttons-container .button:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.exterior {
+  background-image: url(https://lh3.googleusercontent.com/QN3qAPpLsEQnBHtS6x8-3mjnL7duOkSrKSCjBEEMXaf5Lf-OUGKvYiwMp9hIICOFHUTg=h900);
+}
+
+.interior {
+  background-image: url(http://ecx.images-amazon.com/images/I/91VwILj26CL.jpg);
+}
+
+.stepper-container {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+}
+
+.step svg {
+  fill: rgb(252, 252, 252) !important;
+}
+
+.step svg text {
+  fill: #333 !important;
+}
+
+.items-chooser {
+  padding: 30px;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.items-chooser .title {
+  color: #333;
+  text-shadow: none;
+}
+
+.items-chooser .controls-container,
+.how-container .controls-container {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.items-chooser .controls-container.visible,
+.how-container .controls-container.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.which-container .button {
+  line-height: 10vw;
+  width: 35vw;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.which-container .buttons-container {
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+.which-container .buttons-container.visible {
+  opacity: 1;
+}
+
+.which-container .tile-roof {
+  background-image: url(http://www.aucklandroofing.net.nz/communities/0/004/009/612/140//images/4625618265.jpg);
+}
+
+.which-container .composite-shingles-roof {
+  background-image: url(http://s3-production.bobvila.com/blogs/wp-content/uploads/2013/03/CertainTeed_Symphony-Composite-Slate-Roofing.jpg);
+}
+
+.which-container .flat-roof {
+  background-image: url(http://soduspointroofing.com/wp-content/uploads/2013/06/flat-roof.gif);
+}
+
+.which-container .spanish-tile-roof {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Roof-Tile-3149.jpg);
+}
+
+.how-container {
+  text-align: center;
+}
+
+.how-container .title {
+  margin-bottom: 10px;
+}
+
+.how-container .example-image {
+  background-image: url(http://www.evoenergy.co.uk/wp-content/uploads/home-suitability_roof-pitch_Aug2012.jpg);
+  background-size: 100%;
+  width: 480px;
+  height: 360px;
+  margin: auto;
+}
+
+.how-container .select-container {
+  width: 480px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: auto;
+}
+
+.price-container .submit-button {
+  opacity: 0;
+}
+
+.price-container .submit-button.visible {
+  opacity: 1;
+}

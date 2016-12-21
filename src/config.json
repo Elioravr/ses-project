@@ -6,12 +6,14 @@
     },
     "buttons": [
       {
-        "text": "Exteior",
-        "src": "https://lh3.googleusercontent.com/QN3qAPpLsEQnBHtS6x8-3mjnL7duOkSrKSCjBEEMXaf5Lf-OUGKvYiwMp9hIICOFHUTg=h900"
+        "text": "Exterior",
+        "src": "https://lh3.googleusercontent.com/QN3qAPpLsEQnBHtS6x8-3mjnL7duOkSrKSCjBEEMXaf5Lf-OUGKvYiwMp9hIICOFHUTg=h900",
+        "className": "exterior"
       },
       {
         "text": "Interior",
-        "src": "http://ecx.images-amazon.com/images/I/91VwILj26CL.jpg"
+        "src": "http://ecx.images-amazon.com/images/I/91VwILj26CL.jpg",
+        "className": "interior"
       }
     ]
   }
