@@ -7,7 +7,7 @@ export default class Button extends Component {
       onClick: PropTypes.func.isRequired
     }),
     labels: PropTypes.shape({
-      buttonText: PropTypes.string.isRequired
+      text: PropTypes.string.isRequired
     }),
     className: PropTypes.string
   }
@@ -23,7 +23,7 @@ export default class Button extends Component {
     // If you want the button to have a specific background,
     // you can do it by css
     return (
-      <div className="{classes}" onClick={onClick}>{text}</div>
+      <div className={classes} onClick={onClick}>{text}</div>
     )
   }
 }

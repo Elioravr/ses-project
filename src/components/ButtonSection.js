@@ -14,18 +14,34 @@ export default class ButtonSection extends Component {
     hasBorderEffect: PropTypes.bool
   }
 
+  state = {
+    loaded: false
+  }
+
+  componentDidMount() {
+    this.setState({loaded: true})
+  }
+
   renderButtons() {
-    const {buttons} = this.props
+    const {buttons, ...rest} = this.props
 
     return buttons.map((button, index) => {
+      const {text, className} = button
       const props = {
+        ...rest,
+        className,
         labels: {
-          text: button.text
+          text: text
         }
       }
 
-      return <Button key={index} {...props}/>
+      console.log("button props", props);
+      const key = index
+
+      return <Button {...props} key={key} />
+      // return <div key={key}>elior</div>
     })
+    // return <Button labels={props.labels} callbacks={callbacks} key={index} />
   }
 
   renderContent() {
@@ -37,9 +53,12 @@ export default class ButtonSection extends Component {
   }
 
   render() {
-    return <Section
-      content={this.renderContent()}
-      {...this.props}
-    />
+    return (
+      <div className="buttons-container">
+        <Section {...this.props} loaded={this.state.loaded}>
+          {this.renderContent()}
+        </Section>
+      </div>
+    )
   }
 }

@@ -6,8 +6,12 @@ import ButtonSection from './ButtonSection'
 export default class Welcome extends Component {
   render() {
     const props = {
-      labels: welcome.labels,
-      buttons: welcome.buttons
+      ...welcome,
+      callbacks: {
+        onClick: () => {
+          console.log("onClick");
+        }
+      }
     }
 
     return (

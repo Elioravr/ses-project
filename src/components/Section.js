@@ -5,22 +5,15 @@ import Button from './Button'
 
 export default class Section extends Component {
   static propTypes = {
-    content: PropTypes.object.isRequired,
-    mainTitle: PropTypes.string,
-    subTitle: PropTypes.string,
+    labels: PropTypes.shape({
+      mainTitle: PropTypes.string,
+      subTitle: PropTypes.string,
+    }),
     hasBorderEffect: PropTypes.bool
   }
 
-  state = {
-    loaded: false
-  }
-
-  componentDidMount() {
-    this.setState({loaded: true})
-  }
-
   renderMainTitle() {
-    const {mainTitle} = this.props
+    const {labels: {mainTitle}} = this.props
 
     if (mainTitle) {
       return <div className="title main-title">{mainTitle}</div>
@@ -31,7 +24,7 @@ export default class Section extends Component {
   }
 
   renderSubTitle() {
-    const {subTitle} = this.props
+    const {labels: {subTitle}} = this.props
 
     if (subTitle) {
       return <div className="title sub-title">{subTitle}</div>
@@ -42,10 +35,10 @@ export default class Section extends Component {
   }
 
   renderBorderBottom() {
-    const {hasBorderEffect} = this.props
+    const {hasBorderEffect, loaded} = this.props
 
     if (hasBorderEffect) {
-      return <div className={`border-bottom ${this.state.loaded ? 'visible' : ''}`}></div>
+      return <div className={`border-bottom ${loaded ? 'visible' : ''}`}></div>
     }
     else {
       return null;
@@ -60,11 +53,11 @@ export default class Section extends Component {
     const content = concat(this.props.content);
 
     return (
-      <div className={`section-container ${this.state.loaded ? 'visible' : ''}`}>
+      <div className="section-container">
         {this.renderMainTitle()}
         {this.renderBorderBottom()}
         {this.renderSubTitle()}
-        {content}
+        {this.props.children}
       </div>
     )
   }
