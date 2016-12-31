@@ -76,14 +76,6 @@
   opacity: 0.8;
 }
 
-.exterior {
-  background-image: url(https://lh3.googleusercontent.com/QN3qAPpLsEQnBHtS6x8-3mjnL7duOkSrKSCjBEEMXaf5Lf-OUGKvYiwMp9hIICOFHUTg=h900);
-}
-
-.interior {
-  background-image: url(http://ecx.images-amazon.com/images/I/91VwILj26CL.jpg);
-}
-
 .stepper-container {
   position: absolute;
   top: 0;

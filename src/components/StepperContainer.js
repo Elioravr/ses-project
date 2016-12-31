@@ -36,14 +36,14 @@ export default class StepperContainer extends Component {
   renderStepContent(stepIndex) {
     const {steps} = this.props
 
-    return steps[stepIndex].title
+    return steps[stepIndex].content
   }
 
   renderStepLabels(stepIndex) {
     const {steps} = this.props
 
     return (
-      <StepLabel>{steps[stepIndex].content}</StepLabel>
+      <StepLabel>{steps[stepIndex].title}</StepLabel>
     )
   }
 

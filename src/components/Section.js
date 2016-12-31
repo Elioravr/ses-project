@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import {concat} from 'lodash';
-
-import Button from './Button'
 
 export default class Section extends Component {
   static propTypes = {
@@ -45,13 +42,7 @@ export default class Section extends Component {
     }
   }
 
-  // <div className="button tile-roof" onClick={this.props.nextStep}>Tile</div>
-  // <div className="button composite-shingles-roof" onClick={this.props.nextStep}>Composite Shingles</div>
-  // <div className="button flat-roof" onClick={this.props.nextStep}>Flat</div>
-  // <div className="button spanish-tile-roof" onClick={this.props.nextStep}>Spanish Tile</div>
   render() {
-    const content = concat(this.props.content);
-
     return (
       <div className="section-container">
         {this.renderMainTitle()}

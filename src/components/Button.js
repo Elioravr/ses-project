@@ -13,17 +13,15 @@ export default class Button extends Component {
   }
 
   render() {
-    console.log("======================");
-    console.log(this.props);
-    console.log("======================");
     const {className, labels: {text}, callbacks: {onClick}} = this.props
     const classes = `button ${className}`
 
+    const style = {
+      'backgroundImage': `url(${this.props.src})`
+    }
 
-    // If you want the button to have a specific background,
-    // you can do it by css
     return (
-      <div className={classes} onClick={onClick}>{text}</div>
+      <div style={style} className={classes} onClick={onClick}>{text}</div>
     )
   }
 }

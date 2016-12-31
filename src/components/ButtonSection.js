@@ -26,19 +26,17 @@ export default class ButtonSection extends Component {
     const {buttons, ...rest} = this.props
 
     return buttons.map((button, index) => {
-      const {text, className} = button
+      const {text, className, src} = button
       const props = {
         ...rest,
+        src,
         className,
         labels: {
           text: text
         }
       }
 
-      console.log("button props", props);
-      const key = index
-
-      return <Button {...props} key={key} />
+      return <Button {...props} key={index} />
       // return <div key={key}>elior</div>
     })
     // return <Button labels={props.labels} callbacks={callbacks} key={index} />
