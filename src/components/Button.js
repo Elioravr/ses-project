@@ -9,19 +9,24 @@ export default class Button extends Component {
     labels: PropTypes.shape({
       text: PropTypes.string.isRequired
     }),
-    className: PropTypes.string
+    buttonName: PropTypes.string
+  }
+
+  onClick = () => {
+    const {buttonName, callbacks: {onClick}} = this.props
+    onClick(buttonName)
   }
 
   render() {
-    const {className, labels: {text}, callbacks: {onClick}} = this.props
-    const classes = `button ${className}`
+    const {buttonName, labels: {text}} = this.props
+    const classes = `button ${buttonName}`
 
     const style = {
       'backgroundImage': `url(${this.props.src})`
     }
 
     return (
-      <div style={style} className={classes} onClick={onClick}>{text}</div>
+      <div style={style} className={classes} onClick={this.onClick}>{text}</div>
     )
   }
 }

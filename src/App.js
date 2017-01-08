@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import './style/App.css';
 
-import Welcome from './components/Welcome';
+import {steps} from './steps'
+import StepperContainer from './components/StepperContainer'
 
 class App extends Component {
+  renderStepper() {
+    return (
+      <StepperContainer {...{steps}} />
+    )
+  }
+
   render() {
     return (
       <div>
         <div className="background"></div>
         <div className="App">
-          <Welcome />
+          {this.renderStepper()}
         </div>
       </div>
     );

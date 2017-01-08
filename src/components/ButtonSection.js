@@ -23,23 +23,22 @@ export default class ButtonSection extends Component {
   }
 
   renderButtons() {
-    const {buttons, ...rest} = this.props
+    const {buttons, nextStep} = this.props
 
     return buttons.map((button, index) => {
-      const {text, className, src} = button
+      const {text, ...restOfButtonProps} = button
       const props = {
-        ...rest,
-        src,
-        className,
+        ...restOfButtonProps,
         labels: {
           text: text
+        },
+        callbacks: {
+          onClick: nextStep
         }
       }
 
       return <Button {...props} key={index} />
-      // return <div key={key}>elior</div>
     })
-    // return <Button labels={props.labels} callbacks={callbacks} key={index} />
   }
 
   renderContent() {
