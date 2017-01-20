@@ -33,7 +33,9 @@ export default class ButtonSection extends Component {
           text: text
         },
         callbacks: {
-          onClick: nextStep
+          onClick: (buttonValue) => {
+            nextStep(buttonValue)
+          }
         }
       }
 

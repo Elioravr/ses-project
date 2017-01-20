@@ -56,13 +56,19 @@
 
 .buttons-container {
   padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons-container .button {
-  line-height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
   width: 300px;
   margin: 10px 15px;
-  display: inline-block;
   color: rgb(252, 252, 252);
   font-size: 40px;
   text-shadow: 1px 1px 0px black;
@@ -91,32 +97,9 @@
   fill: #333 !important;
 }
 
-.items-chooser {
-  padding: 30px;
-  border-radius: 30px;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.items-chooser .title {
-  color: #333;
-  text-shadow: none;
-}
-
-.items-chooser .controls-container,
-.how-container .controls-container {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-.items-chooser .controls-container.visible,
-.how-container .controls-container.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .which-container .button {
-  line-height: 10vw;
+  display: flex;
+  justify-content: center;
   width: 35vw;
   padding: 10px;
   font-size: 20px;

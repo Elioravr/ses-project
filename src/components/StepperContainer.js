@@ -6,14 +6,13 @@ import {
 } from 'material-ui/Stepper'
 
 import { createArrayPropType } from '../common'
-import ButtonSection from './ButtonSection'
 
 export default class StepperContainer extends Component {
   static propTypes = {
     steps: PropTypes.arrayOf((propValue, key, componentName) => {
       const fields = {
         sectionName: 'string',
-        sectionComponent: 'string',
+        sectionComponent: 'function', // Component class
         labels: {
           mainTitle: 'string',
           subTitle: 'string'
@@ -44,32 +43,15 @@ export default class StepperContainer extends Component {
     }
   }
 
-  getCurrentContentComponent(step) {
-    let component
-    switch (step.sectionComponent) {
-      case 'ButtonSection': {
-        component = ButtonSection
-        break
-      }
-
-      default: {
-        throw new Error(`You must specify sectionComponent for - ${step.sectionName}`)
-      }
-    }
-
-    return component
-  }
-
   renderStepContent(stepIndex) {
     const {steps} = this.props
-    const {labels, buttons} = steps[stepIndex]
-    const CurrentContentComponent = this.getCurrentContentComponent(steps[stepIndex])
+    const CurrentContentComponent = steps[stepIndex].sectionComponent
 
     const props = {
-      labels,
-      buttons,
+      ...steps[stepIndex],
       nextStep: (nextStepValue) => {
         this.setState({nextStepValue})
+        this.handleNext()
       }
     }
 
