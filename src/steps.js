@@ -24,6 +24,7 @@ export const steps = [
   {
     sectionName: "which",
     hasBorderEffect: true,
+    getTitleFromLastValue: true,
     sectionComponent: ButtonSection,
     labels: {
       mainTitle: "Which?",

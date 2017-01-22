@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import stepReducer from './reducers/stepReducer'
+import App from './App';
 import './index.css';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -10,7 +13,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
+const store = createStore(stepReducer)
+
 ReactDOM.render(
-  <MuiThemeProvider><App /></MuiThemeProvider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );

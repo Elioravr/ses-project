@@ -1,4 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import {connect} from 'react-redux';
+import {moveToNextStep} from '../actions/stepActions';
+import {getSteps, getCurrentStepIndex} from '../reducers/selectors';
+
 import {
   Step,
   Stepper,
@@ -7,7 +11,7 @@ import {
 
 import { createArrayPropType } from '../common'
 
-export default class StepperContainer extends Component {
+class StepperContainer extends Component {
   static propTypes = {
     steps: PropTypes.arrayOf((propValue, key, componentName) => {
       const fields = {
@@ -20,19 +24,20 @@ export default class StepperContainer extends Component {
       }
 
       return createArrayPropType(componentName, propValue[key], fields)
-    })
+    }),
+    currentStepIndex: PropTypes.number.isRequired
   }
 
   state = {
     finished: false,
-    stepIndex: 0,
   }
 
-  handleNext = () => {
-    const {stepIndex} = this.state
+  handleNext = (lastStepValue) => {
+    const {currentStepIndex, dispatch} = this.props
+    dispatch(moveToNextStep(lastStepValue))
+
     this.setState({
-      stepIndex: stepIndex + 1,
-      finished: this.props.steps.length === stepIndex,
+      finished: this.props.steps.length === currentStepIndex,
     })
   }
 
@@ -49,10 +54,11 @@ export default class StepperContainer extends Component {
 
     const props = {
       ...steps[stepIndex],
-      nextStep: (nextStepValue) => {
-        this.setState({nextStepValue})
-        this.handleNext()
-      }
+      nextStep: (lastStepValue) => {
+        this.setState({lastStepValue})
+        this.handleNext(lastStepValue)
+      },
+      options: steps[stepIndex]
     }
 
     return <CurrentContentComponent {...props} />
@@ -71,20 +77,28 @@ export default class StepperContainer extends Component {
   }
 
   render() {
-    const {stepIndex} = this.state
+    const {currentStepIndex} = this.props
     const contentStyle = {margin: '0 16px'}
 
     return (
       <div>
         <div className="stepper-container">
-          <Stepper activeStep={stepIndex} className="stepper">
-            {this.renderStepLabels(stepIndex)}
+          <Stepper activeStep={currentStepIndex} className="stepper">
+            {this.renderStepLabels(currentStepIndex)}
           </Stepper>
         </div>
         <div style={contentStyle}>
-          {this.renderStepContent(stepIndex)}
+          {this.renderStepContent(currentStepIndex)}
         </div>
       </div>
     )
   }
 }
+
+
+export default connect((store) => {
+  return {
+    steps: getSteps(store),
+    currentStepIndex: getCurrentStepIndex(store)
+  }
+})(StepperContainer);

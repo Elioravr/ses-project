@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-
+import {connect} from 'react-redux';
+import {getCurrentStepButtons, getCurrentStepTitle} from '../reducers/selectors';
 import Button from './Button'
 import Section from './Section'
 
-export default class ButtonSection extends Component {
+class ButtonSection extends Component {
 
   static propTypes = {
     buttons: PropTypes.array.isRequired,
@@ -52,12 +53,26 @@ export default class ButtonSection extends Component {
   }
 
   render() {
+    const props = this.props
+    const {mainTitle} = this.props
+
+    if (mainTitle) {
+      props.labels.mainTitle = mainTitle
+    }
+
     return (
       <div className="buttons-container">
-        <Section {...this.props} loaded={this.state.loaded}>
+        <Section {...props} loaded={this.state.loaded}>
           {this.renderContent()}
         </Section>
       </div>
     )
   }
 }
+
+export default connect((store) => {
+  return {
+    buttons: getCurrentStepButtons(store),
+    mainTitle: getCurrentStepTitle(store)
+  }
+})(ButtonSection);

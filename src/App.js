@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './style/App.css';
 
-import {steps} from './steps'
 import StepperContainer from './components/StepperContainer'
 
-class App extends Component {
+export default class App extends Component {
   renderStepper() {
     return (
-      <StepperContainer {...{steps}} />
+      <StepperContainer />
     )
   }
 
@@ -22,5 +21,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

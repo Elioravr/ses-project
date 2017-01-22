@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import {connect} from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
+import {getCurrentStepOptions} from '../reducers/selectors'
 import '../style/ItemChooserSection.css';
 
-export default class ItemChooserSection extends Component {
+class ItemChooserSection extends Component {
 
   static propTypes = {
     options: PropTypes.array.isRequired,
@@ -15,7 +17,8 @@ export default class ItemChooserSection extends Component {
       nextStep: PropTypes.func.isRequired
     }),
     nextButtonText: PropTypes.string,
-    subTitleElement: PropTypes.object
+    subTitleElement: PropTypes.object,
+    lastStepValue: PropTypes.string,
   }
 
   state = {
@@ -35,6 +38,7 @@ export default class ItemChooserSection extends Component {
 
   renderMenuItems() {
     const {options} = this.props;
+
     const optionsWithPlaceHolder = [
       {
         text: "Please Choose Item",
@@ -78,3 +82,9 @@ export default class ItemChooserSection extends Component {
     )
   }
 }
+
+export default connect((store) => {
+  return {
+    options: getCurrentStepOptions(store)
+  }
+})(ItemChooserSection);
