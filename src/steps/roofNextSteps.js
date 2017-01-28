@@ -1,5 +1,5 @@
 import ButtonSection from 'components/ButtonSection';
-import {stepsContent} from './stepsContent';
+import {roofContent} from './productContents/roof';
 
 export default [
   {
@@ -11,7 +11,7 @@ export default [
       mainTitle: "Which?",
       subTitle: "Which kind of roof would you like to renovate in your house?"
     },
-    buttons: stepsContent['roof.which'].buttons
+    buttons: roofContent['which'].buttons
   },
   {
     sectionName: "slope",
@@ -20,7 +20,7 @@ export default [
       mainTitle: "Roof Slope",
       subTitle: "Please choose your roof slope"
     },
-    buttons: stepsContent['roof.slope'].buttons
+    buttons: roofContent['slope'].buttons
   },
   {
     sectionName: "over-hang",
@@ -29,6 +29,6 @@ export default [
       mainTitle: "Roof Over Hang",
       subTitle: "Please choose your roof over hang"
     },
-    buttons: stepsContent['roof.over-hang'].buttons
+    buttons: roofContent['over-hang'].buttons
   }
 ]
