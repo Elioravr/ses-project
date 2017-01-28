@@ -33,8 +33,11 @@ class StepperContainer extends Component {
   }
 
   handleNext = (lastStepValue) => {
-    const {currentStepIndex, dispatch} = this.props
-    dispatch(moveToNextStep(lastStepValue))
+    const {steps, currentStepIndex, moveToNextStep} = this.props
+
+    moveToNextStep(lastStepValue, {
+      continueWithLastValueSteps: steps[currentStepIndex].continueWithLastValueSteps
+    })
 
     this.setState({
       finished: this.props.steps.length === currentStepIndex,
@@ -101,4 +104,4 @@ export default connect((store) => {
     steps: getSteps(store),
     currentStepIndex: getCurrentStepIndex(store)
   }
-})(StepperContainer);
+}, {moveToNextStep})(StepperContainer);

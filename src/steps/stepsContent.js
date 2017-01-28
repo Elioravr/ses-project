@@ -31,7 +31,7 @@ export const stepsContent = {
       ]
     }
   },
-  which: {
+  'roof.which': {
     buttons: {
       roof: [
         {
