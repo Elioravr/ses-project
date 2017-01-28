@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
-import {getCurrentStepOptions} from '../reducers/selectors'
-import '../style/ItemChooserSection.css';
+import {getCurrentStepOptions} from 'store/reducers/selectors'
+import 'style/ItemChooserSection.css';
 
 class ItemChooserSection extends Component {
 

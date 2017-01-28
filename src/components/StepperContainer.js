@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux';
-import {moveToNextStep} from '../actions/stepActions';
-import {getSteps, getCurrentStepIndex} from '../reducers/selectors';
+import {moveToNextStep} from 'store/actions/stepActions';
+import {getSteps, getCurrentStepIndex} from 'store/reducers/selectors';
 
 import {
   Step,
@@ -9,7 +9,7 @@ import {
   StepLabel,
 } from 'material-ui/Stepper'
 
-import { createArrayPropType } from '../common'
+import { createArrayPropType } from 'common'
 
 class StepperContainer extends Component {
   static propTypes = {

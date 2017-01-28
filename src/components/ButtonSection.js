@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
-import {getCurrentStepButtons, getCurrentStepTitle} from '../reducers/selectors';
+import {getCurrentStepButtons, getCurrentStepTitle} from 'store/reducers/selectors';
 import Button from './Button'
 import Section from './Section'
 
