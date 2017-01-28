@@ -17,12 +17,15 @@ export const getCurrentStepOptions = (store) => {
 }
 
 export const getCurrentStepButtons = (store) => {
-  const lastStepValue = getLastStepValue(store)
+  // TODO: Understand with Shlomi if we
+  // need this functionality anymore.
+
+  // const lastStepValue = getLastStepValue(store)
   let buttons = getCurrentStep(store).buttons
 
-  if (lastStepValue) {
-    buttons = buttons[lastStepValue] || []
-  }
+  // if (lastStepValue) {
+  //   buttons = buttons[lastStepValue] || []
+  // }
 
   return buttons
 }
