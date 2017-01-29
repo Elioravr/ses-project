@@ -1,5 +1,3 @@
-import { productContent } from './productContent'
-
 export const stepsContent = {
   welcome: {
     buttons: [
@@ -31,7 +29,6 @@ export const stepsContent = {
         { value: "interior_garden", text: 'Interior_Garden' },
         { value: "interior_hardScope", text: 'Interior_Hard Scope' }
       ]
-    },
-    productContent
+    }
   }
 }
