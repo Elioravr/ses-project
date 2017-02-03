@@ -34,9 +34,18 @@ class StepperContainer extends Component {
 
   handleNext = (lastStepValue) => {
     const {steps, currentStepIndex, moveToNextStep} = this.props
+    const {
+      continueWithLastValueSteps,
+      sectionName,
+      labels: {
+        mainTitle
+      }
+    } = steps[currentStepIndex]
 
     moveToNextStep(lastStepValue, {
-      continueWithLastValueSteps: steps[currentStepIndex].continueWithLastValueSteps
+      sectionName,
+      mainTitle,
+      continueWithLastValueSteps,
     })
 
     this.setState({
