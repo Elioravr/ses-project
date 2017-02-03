@@ -1,4 +1,5 @@
 import ButtonSection from 'components/ButtonSection';
+import QuestionSection from 'components/QuestionSection';
 import {roofContent} from './productContents/roof';
 
 export default [
@@ -30,5 +31,14 @@ export default [
       subTitle: "Please choose your roof over hang"
     },
     buttons: roofContent['over-hang'].buttons
+  },
+  {
+    sectionName: "dimensions",
+    sectionComponent: QuestionSection,
+    labels: {
+      mainTitle: "House Dimensions",
+      subTitle: "How big is your house?"
+    },
+    questions: roofContent['dimensions'].questions
   }
 ]

@@ -75,7 +75,7 @@ class ItemChooserSection extends Component {
             style={{color: '#333', width: '80%'}}
             onClick={this.onClick}
           >
-            {this.props.nextButtonText ? this.props.nextButtonText : "Continue"}
+            {this.props.nextButtonText || "Continue"}
           </FlatButton>
         </div>
       </div>

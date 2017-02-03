@@ -70,5 +70,23 @@ export const roofContent = {
         buttonName: "16To32"
       }
     ]
+  },
+  'dimensions': {
+    questions: [
+      {
+        name: 'floor',
+        text: 'How many floors is your house?'
+      },
+      {
+        name: 'homeSquareFoot',
+        text: 'Please type your home square foot.',
+        hintText: 'If you don’t know your home sq ft the easiest way to find it is on real estate websites such as Zillow or Trulia.'
+      },
+      {
+        name: 'garageSquareFoot',
+        text: 'Please choose your garage square foot (if garage included).',
+        optional: true
+      },
+    ]
   }
 }

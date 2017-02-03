@@ -81,7 +81,7 @@ class StepperContainer extends Component {
 
   render() {
     const {currentStepIndex} = this.props
-    const contentStyle = {margin: '0 16px'}
+    const contentStyle = {margin: '0 16px', width: '100%'}
 
     return (
       <div>
