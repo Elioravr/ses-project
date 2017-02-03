@@ -25,11 +25,13 @@ class ButtonSection extends Component {
 
   renderButtons() {
     const {buttons, nextStep} = this.props
+    const className = buttons.length > 4 ? 'little-button' : ''
 
     return buttons.map((button, index) => {
       const {text, ...restOfButtonProps} = button
       const props = {
         ...restOfButtonProps,
+        className,
         labels: {
           text: text
         },

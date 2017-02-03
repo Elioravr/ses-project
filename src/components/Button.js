@@ -18,8 +18,8 @@ export default class Button extends Component {
   }
 
   render() {
-    const {buttonName, labels: {text}} = this.props
-    const classes = `button ${buttonName}`
+    const {buttonName, className, labels: {text}} = this.props
+    const classes = `button ${className} ${buttonName}`
 
     const style = {
       'backgroundImage': `url(${this.props.src})`

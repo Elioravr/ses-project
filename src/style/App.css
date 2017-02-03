@@ -77,6 +77,12 @@
   cursor: pointer;
 }
 
+.buttons-container .button.little-button {
+  height: 120px;
+  width: 250px;
+  font-size: 30px;
+}
+
 .buttons-container .button:hover {
   transform: scale(1.2);
   opacity: 0.8;

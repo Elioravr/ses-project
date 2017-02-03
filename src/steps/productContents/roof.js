@@ -2,25 +2,35 @@ export const roofContent = {
   'which': {
     buttons: [
       {
-        text: "Tile",
+        text: "Flat Roof",
         src: "http://www.aucklandroofing.net.nz/communities/0/004/009/612/140//images/4625618265.jpg",
-        buttonName: "tile"
+        buttonName: "flatRoof"
       },
       {
-        text: "Composite Shingles",
+        text: "Composition Shingles",
         src: "http://s3-production.bobvila.com/blogs/wp-content/uploads/2013/03/CertainTeed_Symphony-Composite-Slate-Roofing.jpg",
-        buttonName: "compositeShingles"
-      },
-      {
-        text: "Flat",
-        src: "http://soduspointroofing.com/wp-content/uploads/2013/06/flat-roof.gif",
-        buttonName: "flat"
+        buttonName: "compositionShingles"
       },
       {
         text: "Spanish Tile",
         src: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Roof-Tile-3149.jpg",
         buttonName: "spanishTile"
-      }
+      },
+      {
+        text: "Flat Cement Tile",
+        src: "http://www.aucklandroofing.net.nz/communities/0/004/009/612/140//images/4625618265.jpg",
+        buttonName: "flatCementTile"
+      },
+      {
+        text: "Aluminium Roofing",
+        src: "http://www.aucklandroofing.net.nz/communities/0/004/009/612/140//images/4625618265.jpg",
+        buttonName: "aluminiumRoofing"
+      },
+      {
+        text: "Roof Combination",
+        src: "http://www.aucklandroofing.net.nz/communities/0/004/009/612/140//images/4625618265.jpg",
+        buttonName: "roofCombination"
+      },
     ]
   },
   'slope': {
