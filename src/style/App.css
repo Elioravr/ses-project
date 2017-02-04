@@ -183,7 +183,7 @@
 
 .back-button {
   position: absolute;
-  left: 50px;
+  left: 30px;
   bottom: 50px;
   display: flex;
   align-items: center;
@@ -214,5 +214,5 @@
 }
 
 .back-button:hover {
-  left: 40px;
+  left: 20px;
 }

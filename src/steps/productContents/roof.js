@@ -84,18 +84,21 @@ export const roofContent = {
   'dimensions': {
     questions: [
       {
-        name: 'floor',
-        text: 'How many floors is your house?'
+        name: 'floors',
+        text: 'How many floors is your house?',
+        shortText: 'Floors'
       },
       {
         name: 'homeSquareFoot',
         text: 'Please type your home square foot.',
-        hintText: 'If you don’t know your home sq ft the easiest way to find it is on real estate websites such as Zillow or Trulia.'
+        hintText: 'If you don’t know your home sq ft the easiest way to find it is on real estate websites such as Zillow or Trulia.',
+        shortText: 'House Square Foot'
       },
       {
         name: 'garageSquareFoot',
         text: 'Please choose your garage square foot (if garage included).',
-        optional: true
+        optional: true,
+        shortText: 'Garage Square Foot'
       },
     ]
   }

@@ -1,15 +1,17 @@
 .step-summary-container {
-  height: 400px;
+  height: 500px;
   flex: 3;
   background-color: rgba(255, 255, 255, 0.6);
   margin: 20px 0;
   color: #333;
-  content: none;
+  overflow: auto;
+  border-radius: 5px;
 }
 
 .step-summary-container .main-title {
   font-size: 22px;
-  margin: 10px 0;
+  margin: 15px 10px;
+  border-bottom: 1px solid #333;
 }
 
 .step-summary-container .value-container {
@@ -17,7 +19,7 @@
   align-items: flex-start;
   flex-direction: column;
   margin-bottom: 10px;
-  padding: 0 10px;
+  padding: 0 12px;
 }
 
 .step-summary-container .value-container .value-title {
@@ -26,4 +28,12 @@
   width: 100%;
   text-align: left;
   margin-bottom: 5px;
+}
+
+
+.step-summary-container .value-container .list-of-answers {
+  margin: 5px 0;
+  padding: 0;
+  padding-left: 17px;
+  text-align: left;
 }

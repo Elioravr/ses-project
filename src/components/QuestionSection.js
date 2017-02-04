@@ -18,7 +18,10 @@ export default class QuestionSection extends Component {
     this.state = {
       questionValues: transform(questions, (result, question) => {
         return result[question.name] = {
-          value: null,
+          result: {
+            value: null,
+            text: question.shortText
+          },
           optional: question.optional
         }
       }, {})
@@ -36,7 +39,10 @@ export default class QuestionSection extends Component {
         ...questionValues,
         [name]: {
           ...questionValues[name],
-          value
+          result: {
+            ...questionValues[name].result,
+            value
+          }
         }
       }
     }
@@ -56,8 +62,8 @@ export default class QuestionSection extends Component {
     let isValid = true
 
     Object.keys(questionValues).forEach((key) => {
-      const question = questionValues[key]
-      isValid = isValid && (question.optional || question.value)
+      const {optional, result: {value}} = questionValues[key]
+      isValid = isValid && (optional || value)
     })
 
     return isValid
