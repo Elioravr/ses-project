@@ -28,6 +28,13 @@ export default (state = initialState, action) => {
       }
     }
 
+    case "MOVE_STEP_BACK": {
+      return {
+        ...state,
+        currentStepIndex: state.currentStepIndex - 1
+      }
+    }
+
     default: {
       return state;
     }

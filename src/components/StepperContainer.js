@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux';
-import {moveToNextStep} from 'store/actions/stepActions';
+import {moveToNextStep, moveStepBack} from 'store/actions/stepActions';
 import {getSteps, getCurrentStepIndex} from 'store/reducers/selectors';
 
 import {
@@ -54,29 +54,27 @@ class StepperContainer extends Component {
   }
 
   handlePrev = () => {
-    const {stepIndex} = this.state
-    if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1})
-    }
+    const {moveStepBack} = this.props
+    moveStepBack()
   }
 
-  renderStepContent(stepIndex) {
-    const {steps} = this.props
-    const CurrentContentComponent = steps[stepIndex].sectionComponent
+  renderStepContent() {
+    const {steps, currentStepIndex} = this.props
+    const CurrentContentComponent = steps[currentStepIndex].sectionComponent
 
     const props = {
-      ...steps[stepIndex],
+      ...steps[currentStepIndex],
       nextStep: (lastStepValue) => {
         this.setState({lastStepValue})
         this.handleNext(lastStepValue)
-      },
-      options: steps[stepIndex]
+      }
     }
+
 
     return <CurrentContentComponent {...props} />
   }
 
-  renderStepLabels(stepIndex) {
+  renderStepLabels() {
     const {steps} = this.props
 
     return steps.map((step, index) => {
@@ -96,11 +94,16 @@ class StepperContainer extends Component {
       <div>
         <div className="stepper-container">
           <Stepper activeStep={currentStepIndex} className="stepper">
-            {this.renderStepLabels(currentStepIndex)}
+            {this.renderStepLabels()}
           </Stepper>
         </div>
         <div style={contentStyle}>
-          {this.renderStepContent(currentStepIndex)}
+          {this.renderStepContent()}
+        </div>
+        <div className={`back-button ${currentStepIndex > 0 && 'visible'}`}
+             onClick={this.handlePrev}>
+          <div className="arrow"></div>
+          <div className="text">Go Back</div>
         </div>
       </div>
     )
@@ -113,4 +116,7 @@ export default connect((store) => {
     steps: getSteps(store),
     currentStepIndex: getCurrentStepIndex(store)
   }
-}, {moveToNextStep})(StepperContainer);
+}, {
+  moveToNextStep,
+  moveStepBack
+})(StepperContainer);

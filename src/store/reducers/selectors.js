@@ -3,7 +3,11 @@ import {startCase} from 'lodash'
 export const getSteps = store => store.steps
 export const getCurrentStepIndex = store => store.currentStepIndex
 export const getCurrentStep = store => getSteps(store)[getCurrentStepIndex(store)]
-export const getLastStepValue = store => store.lastStepValue
+export const getLastStepValue = store => {
+  const lastIndex = getCurrentStepIndex(store) - 1
+  const lastStep = getSteps(store)[lastIndex]
+  return store.stepValues[lastStep.sectionName].value
+}
 
 export const getCurrentStepOptions = (store) => {
   const lastStepValue = getLastStepValue(store)

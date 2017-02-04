@@ -78,9 +78,9 @@
 }
 
 .buttons-container .button.little-button {
-  height: 120px;
-  width: 250px;
-  font-size: 30px;
+  height: 100px;
+  width: 220px;
+  font-size: 24px;
 }
 
 .buttons-container .button:hover {
@@ -164,4 +164,40 @@
 
 .price-container .submit-button.visible {
   opacity: 1;
+}
+
+.back-button {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.back-button.visible {
+  opacity: 1;
+}
+
+.back-button .text {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.back-button .arrow {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+
+  border-right: 20px solid rgba(255, 255, 255, 0.6);
+}
+
+.back-button:hover {
+  left: 40px;
 }

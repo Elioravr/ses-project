@@ -8,3 +8,9 @@ export const moveToNextStep = (lastStepValue, {sectionName, mainTitle, continueW
     payload: {lastStepValue, sectionName, mainTitle, nextSteps: lastValueNextSteps}
   }
 }
+
+export const moveStepBack = () => {
+  return {
+    type: "MOVE_STEP_BACK"
+  }
+}

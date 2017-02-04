@@ -7,7 +7,6 @@ import {getCurrentStepOptions} from 'store/reducers/selectors'
 import 'style/ItemChooserSection.css';
 
 class ItemChooserSection extends Component {
-
   static propTypes = {
     options: PropTypes.array.isRequired,
     labels: PropTypes.shape({
