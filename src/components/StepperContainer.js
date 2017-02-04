@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import {connect} from 'react-redux';
 import {moveToNextStep, moveStepBack} from 'store/actions/stepActions';
-import {getSteps, getCurrentStepIndex} from 'store/reducers/selectors';
+import {getSteps, getCurrentStepIndex, getIsStepsFinished} from 'store/reducers/selectors';
 
 import {
   Step,
@@ -10,6 +10,7 @@ import {
 } from 'material-ui/Stepper'
 
 import { createArrayPropType } from 'common'
+import StepSummary from './StepSummary'
 
 class StepperContainer extends Component {
   static propTypes = {
@@ -32,6 +33,11 @@ class StepperContainer extends Component {
     finished: false,
   }
 
+  isNotFirstStep = () => {
+    const {currentStepIndex} = this.props
+    return currentStepIndex > 0
+  }
+
   handleNext = (lastStepValue) => {
     const {steps, currentStepIndex, moveToNextStep} = this.props
     const {
@@ -47,15 +53,12 @@ class StepperContainer extends Component {
       mainTitle,
       continueWithLastValueSteps,
     })
-
-    this.setState({
-      finished: this.props.steps.length === currentStepIndex,
-    })
   }
 
   handlePrev = () => {
-    const {moveStepBack} = this.props
-    moveStepBack()
+    const {moveStepBack, steps, currentStepIndex} = this.props
+    const lastStep = steps[currentStepIndex - 1]
+    moveStepBack(lastStep)
   }
 
   renderStepContent() {
@@ -87,20 +90,21 @@ class StepperContainer extends Component {
   }
 
   render() {
-    const {currentStepIndex} = this.props
+    const {currentStepIndex, isFinished} = this.props
     const contentStyle = {margin: '0 16px', width: '100%'}
 
     return (
-      <div>
+      <div className="wizard-container">
+        {this.isNotFirstStep() && <StepSummary isFinished={isFinished} />}
         <div className="stepper-container">
           <Stepper activeStep={currentStepIndex} className="stepper">
             {this.renderStepLabels()}
           </Stepper>
         </div>
-        <div style={contentStyle}>
-          {this.renderStepContent()}
+        <div className="section-container" style={contentStyle}>
+          {!isFinished && this.renderStepContent()}
         </div>
-        <div className={`back-button ${currentStepIndex > 0 && 'visible'}`}
+        <div className={`back-button ${this.isNotFirstStep() && 'visible'}`}
              onClick={this.handlePrev}>
           <div className="arrow"></div>
           <div className="text">Go Back</div>
@@ -114,7 +118,8 @@ class StepperContainer extends Component {
 export default connect((store) => {
   return {
     steps: getSteps(store),
-    currentStepIndex: getCurrentStepIndex(store)
+    currentStepIndex: getCurrentStepIndex(store),
+    isFinished: getIsStepsFinished(store)
   }
 }, {
   moveToNextStep,

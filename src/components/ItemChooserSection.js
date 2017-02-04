@@ -25,20 +25,22 @@ class ItemChooserSection extends Component {
   };
 
   handleChange = (event, index, value) => {
-    this.setState({value})
+    const {text} = this.optionsWithPlaceHolder[index]
+
+    this.setState({value, text})
   }
 
   onClick = () => {
     const {nextStep} = this.props
-    const {value} = this.state
+    const {value, text} = this.state
 
-    nextStep(value)
+    nextStep({value, text})
   }
 
   renderMenuItems() {
     const {options} = this.props;
 
-    const optionsWithPlaceHolder = [
+    this.optionsWithPlaceHolder = [
       {
         text: "Please Choose Item",
         value: 0
@@ -46,7 +48,7 @@ class ItemChooserSection extends Component {
       ...options
     ]
 
-    return optionsWithPlaceHolder.map((option, index) => {
+    return this.optionsWithPlaceHolder.map((option, index) => {
       return(<MenuItem key={index} value={option.value} primaryText={option.text} />)
     })
   }

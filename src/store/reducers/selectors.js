@@ -2,19 +2,21 @@ import {startCase} from 'lodash'
 
 export const getSteps = store => store.steps
 export const getCurrentStepIndex = store => store.currentStepIndex
+export const getIsStepsFinished = store => getSteps(store).length === getCurrentStepIndex(store)
 export const getCurrentStep = store => getSteps(store)[getCurrentStepIndex(store)]
-export const getLastStepValue = store => {
+export const getStepValues = store => store.stepValues
+export const getLastStepResult = store => {
   const lastIndex = getCurrentStepIndex(store) - 1
   const lastStep = getSteps(store)[lastIndex]
-  return store.stepValues[lastStep.sectionName].value
+  return getStepValues(store)[lastStep.sectionName].result
 }
 
 export const getCurrentStepOptions = (store) => {
-  const lastStepValue = getLastStepValue(store)
+  const lastStepResult = getLastStepResult(store)
   let options = getCurrentStep(store).options
 
-  if (lastStepValue) {
-    options = options[lastStepValue]
+  if (lastStepResult) {
+    options = options[lastStepResult.value]
   }
 
   return options
@@ -24,11 +26,11 @@ export const getCurrentStepButtons = (store) => {
   // TODO: Understand with Shlomi if we
   // need this functionality anymore.
 
-  // const lastStepValue = getLastStepValue(store)
+  // const lastStepResult = getLastStepResult(store)
   let buttons = getCurrentStep(store).buttons
 
-  // if (lastStepValue) {
-  //   buttons = buttons[lastStepValue] || []
+  // if (lastStepResult) {
+  //   buttons = buttons[lastStepResult] || []
   // }
 
   return buttons
@@ -39,7 +41,7 @@ export const getCurrentStepTitle = store => {
   let title = currentStep.labels.mainTitle
 
   if (currentStep.getTitleFromLastValue) {
-    title = startCase(getLastStepValue(store))
+    title = startCase(getLastStepResult(store).text)
   }
 
   return title

@@ -66,8 +66,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 160px;
-  width: 300px;
+  height: 120px;
+  width: 250px;
   margin: 10px 15px;
   color: rgb(252, 252, 252);
   font-size: 40px;
@@ -86,6 +86,21 @@
 .buttons-container .button:hover {
   transform: scale(1.2);
   opacity: 0.8;
+}
+
+.wizard-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.section-container {
+  flex: 7;
+}
+
+.section-container.finished {
+  flex: 0;
 }
 
 .stepper-container {

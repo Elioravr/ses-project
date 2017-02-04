@@ -13,8 +13,8 @@ export default class Button extends Component {
   }
 
   onClick = () => {
-    const {buttonName, callbacks: {onClick}} = this.props
-    onClick(buttonName)
+    const {buttonName, labels: {text}, callbacks: {onClick}} = this.props
+    onClick({value: buttonName, text})
   }
 
   render() {

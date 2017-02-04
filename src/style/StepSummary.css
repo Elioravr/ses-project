@@ -1,0 +1,29 @@
+.step-summary-container {
+  height: 400px;
+  flex: 3;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 20px 0;
+  color: #333;
+  content: none;
+}
+
+.step-summary-container .main-title {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.step-summary-container .value-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.step-summary-container .value-container .value-title {
+  font-size: 20px;
+  border-bottom: 1px dashed black;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
+}
