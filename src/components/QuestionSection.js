@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import {transform} from 'lodash'
 import TextField from 'material-ui/TextField'
 import FlatButton from 'material-ui/FlatButton';
-import 'style/QuestionSection.css'
+import 'style/QuestionSection.scss'
 
 export default class QuestionSection extends Component {
   static propTypes = {

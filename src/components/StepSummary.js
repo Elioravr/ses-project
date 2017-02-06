@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux'
 import {getStepValues} from 'store/reducers/selectors'
-import 'style/StepSummary.css';
+import 'style/StepSummary.scss';
 
 class StepSummary extends Component {
   static propTypes = {

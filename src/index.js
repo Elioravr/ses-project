@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import stepReducer from 'store/reducers/stepReducer'
 import App from './App';
-import './index.css';
+import './index.scss';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 

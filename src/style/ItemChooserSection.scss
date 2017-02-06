@@ -2,23 +2,24 @@
   padding: 30px;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.3);
+
+  .title {
+    color: #333;
+    text-shadow: none;
+  }
+
+  .controls-container {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
-.items-chooser-section .title {
-  color: #333;
-  text-shadow: none;
-}
-
-.items-chooser-section .controls-container,
 .how-container .controls-container {
   opacity: 0;
   pointer-events: none;
 }
 
-
-.items-chooser-section .controls-container.visible,
-.how-container .controls-container.visible {
+.items-chooser-section .controls-container.visible, .how-container .controls-container.visible {
   opacity: 1;
   pointer-events: auto;
 }
-
