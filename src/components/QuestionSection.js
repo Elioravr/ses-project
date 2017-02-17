@@ -1,8 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import {transform} from 'lodash'
-import TextField from 'material-ui/TextField'
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import 'style/QuestionSection.scss'
+
+const PAGE_WIDTH = 500
 
 export default class QuestionSection extends Component {
   static propTypes = {
@@ -26,8 +29,6 @@ export default class QuestionSection extends Component {
         }
       }, {})
     }
-
-    this.pageWidth = '500px'
   }
 
   onChange = (question, value) => {
@@ -71,23 +72,35 @@ export default class QuestionSection extends Component {
 
   renderQuestions() {
     const {questions} = this.props
+    const {questionValues} = this.state
 
     const questionStyle = {
-      width: this.pageWidth
+      width: PAGE_WIDTH,
+      marginBottom: 10
     }
 
     return questions.map((question, index) => {
+      const {result: {value: value}} = questionValues[question.name]
+
       return (
-        <div key={index} className="question-container">
-          <TextField
-            onChange={(e, newValue) => {this.onChange(question, newValue)}}
+        <div key={index} className="question-containeCSr">
+          <SelectField
+            onChange={(e, index, newValue) => {this.onChange(question, newValue)}}
+            value={value}
             style={questionStyle}
+            iconStyle={{fill: "#333"}}
+            maxHeight={200}
             hintText={question.text}
             floatingLabelText={question.text}
-            floatingLabelFocusStyle={{color: "#333"}}
+            floatingLabelStyle={{color: "#333", left: '0'}}
             underlineStyle={{borderColor: "rgba(0, 0, 0, 0.36)"}}
-            underlineFocusStyle={{borderColor: "#333"}}
-          />
+            underlineFocusStyle={{borderColor: "#333"}}>
+            {
+              question.options.map(({value: optionValue, text}, index) => {
+                return <MenuItem key={index} value={optionValue} primaryText={text} />
+              })
+            }
+          </SelectField>
           {question.hintText && <div className="question-hint">{question.hintText}</div>}
         </div>
       )
@@ -106,7 +119,7 @@ export default class QuestionSection extends Component {
             className={`submit-button ${this.isValid() ? 'visible' : ''}`}
             backgroundColor="rgba(255, 255, 255, 0.4)"
             hoverColor="rgba(255, 255, 255, 0.7)"
-            style={{color: '#333', width: this.pageWidth}}
+            style={{color: '#333', width: PAGE_WIDTH}}
             onClick={this.onClick}
           >
             {this.props.nextButtonText || "Continue"}
