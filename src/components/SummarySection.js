@@ -9,11 +9,13 @@ export class SummarySection extends Component {
   }
 
   render() {
-    console.log(this.props)
+    const { stepValues: stepValues } = this.props
+    const { summary: summary } = stepValues
+    const { result: result } = summary
     return (
       <div className="summary-container">
         <label>Total:</label>
-        <span>{this.props.stepValues.summary.result.value}</span>
+        <span>{result.value}</span>
       </div>
     )
   }

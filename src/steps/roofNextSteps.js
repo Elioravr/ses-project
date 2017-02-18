@@ -46,8 +46,8 @@ export default [
     sectionName: 'summary',
     sectionComponent: SummarySection,
     labels: {
-      mainTitle: 'AAAA',
-      subTitle: 'BBBBBB'
+      mainTitle: 'Price!',
+      subTitle: 'This is the price it is going to cost for you'
     }
   }
 ]

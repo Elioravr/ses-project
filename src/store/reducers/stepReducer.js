@@ -1,9 +1,6 @@
 import {omit} from 'lodash';
 import {steps} from 'steps'
-import {mainCalculator} from '../../pricing/calculations/main'
-
-console.log('steps')
-console.log(steps)
+import {getSummaryValues} from './reducerHelper'
 
 const initialState = {
   steps: steps,
@@ -26,9 +23,8 @@ export default (state = initialState, action) => {
         }
       }
 
-      let summaryValues
-      if (steps.length > 2 && currentStepIndex === steps.length - 1) {
-        summaryValues = mainCalculator(updatedStepValues)
+      const summaryValues = getSummaryValues(steps, currentStepIndex, updatedStepValues)
+      if (summaryValues) {
         updatedStepValues.summary = {result: summaryValues}
       }
 

@@ -46,33 +46,3 @@ export const getCurrentStepTitle = store => {
 
   return title
 }
-
-// export const getWelcomeValue = store => {
-//   return store.stepValues.welcome.result
-// }
-//
-// export const getWhatValue = store => {
-//   return store.stepValues.what.result
-// }
-//
-// export const getSummaryParameters = store => {
-//   const welcomeValue = getWelcomeValue(store)
-//   const whatValue = getWhatValue(store)
-//   const stepValues = getStepValues(store)
-//   switch (whatValue) {
-//     case 'roof':
-//       return {
-//         which: stepValues.which,
-//         slope: stepValues.slope,
-//         'over-hang': stepValues['over-hang'],
-//         dimensions: stepValues.dimensions
-//       }
-//       break
-//     default:
-//       break
-//   }
-// }
-//
-// export const getRoofParameters = store => {
-//
-// }
