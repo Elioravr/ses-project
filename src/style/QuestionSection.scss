@@ -19,16 +19,30 @@
   }
 
   .question-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+    margin-bottom: 10px;
 
-  .question-hint {
-    color: rgba(0, 0, 0, 0.36);
-    text-align: left;
-    font-size: 13px;
-    max-width: 500px;
+    .question-hint {
+      color: rgba(0, 0, 0, 0.36);
+      text-align: left;
+      font-size: 13px;
+      max-width: 500px;
+    }
+
+    .required {
+      position: absolute;
+      left: -15px;
+      top: 40px;
+      font-size: 18px;
+      color: #C62828;
+
+      &.answered {
+        opacity: 0;
+      }
+    }
   }
 
   .question-container .question {

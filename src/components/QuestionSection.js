@@ -75,15 +75,16 @@ export default class QuestionSection extends Component {
     const {questionValues} = this.state
 
     const questionStyle = {
-      width: PAGE_WIDTH,
-      marginBottom: 10
+      width: PAGE_WIDTH
     }
 
     return questions.map((question, index) => {
-      const {result: {value: value}} = questionValues[question.name]
+      const {result: {value}} = questionValues[question.name]
+      const requiredClass = `required ${value && 'answered'}`
 
       return (
-        <div key={index} className="question-containeCSr">
+        <div key={index} className="question-container">
+          {!question.optional && <div className={requiredClass}>*</div>}
           <SelectField
             onChange={(e, index, newValue) => {this.onChange(question, newValue)}}
             value={value}
