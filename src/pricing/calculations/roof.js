@@ -10,7 +10,7 @@ const parseDimensions = ({floors, homeSquareFoot, garageSquareFoot}) => {
   }
 }
 
-export const getRoofParams = function({whichValue, slopeValue, overHangValue, dimensions}) {
+export const getParams = function({whichValue, slopeValue, overHangValue, dimensions}) {
   return  {
     tiles: tiles[whichValue.result.value],
     slope: slope[slopeValue.result.value],
@@ -19,8 +19,8 @@ export const getRoofParams = function({whichValue, slopeValue, overHangValue, di
   }
 }
 
-export const calculateRoof = function(stepValues) {
-  const params = getRoofParams({
+export const calculate = function(stepValues) {
+  const params = getParams({
     whichValue: stepValues.which,
     slopeValue: stepValues.slope,
     overHangValue: stepValues['over-hang'],

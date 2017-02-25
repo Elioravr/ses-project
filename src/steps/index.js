@@ -2,6 +2,7 @@ import ButtonSection from 'components/ButtonSection';
 import ItemChooserSection from 'components/ItemChooserSection';
 import {stepsContent} from './stepsContent';
 import roofNextSteps from './roofNextSteps';
+import extPaintNextSteps from './extPaintNextSteps';
 
 export const steps = [
   {
@@ -26,5 +27,6 @@ export const steps = [
 ]
 
 export const nextSteps = {
-  roof: roofNextSteps
+  roof: roofNextSteps,
+  'exterior-paint': extPaintNextSteps
 }

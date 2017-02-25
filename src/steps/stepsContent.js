@@ -18,7 +18,7 @@ export const stepsContent = {
       exterior: [
         { value: "roof", text: 'Roof' },
         { value: "windows", text: 'Windows' },
-        { value: "exteriorPaint", text: 'Exterior Paint' },
+        { value: "exterior-paint", text: 'Exterior Paint' },
         { value: "garden", text: 'Garden' },
         { value: "hardScope", text: 'Hard Scope' }
       ],
