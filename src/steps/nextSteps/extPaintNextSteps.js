@@ -37,7 +37,7 @@ export default [
     sectionComponent: QuestionSection,
     labels: {
       mainTitle: "Windows",
-      subTitle: "How many windows do you have in you're house?"
+      subTitle: "How many windows do you have in your house?"
     },
     questions: extPaintContent['windows'].questions
   },
