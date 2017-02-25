@@ -1,17 +1,7 @@
-import { floorsDiscount } from '../content/extPaint/categories'
-import { overHangRatio } from '../content/extPaint/categories'
-import { overHang } from '../content/extPaint/categories'
-import { windowPrice } from '../content/extPaint/categories'
+import {floorsDiscount, overHangRatio, overHang, windowPrice} from '../content/extPaint/categories'
+import {parseDimensions} from './utils'
 
-const parseDimensions = ({floors, homeSquareFoot, garageSquareFoot}) => {
-  return {
-    floors: parseInt(floors.result.value, 10),
-    homeSquareFoot: parseInt(homeSquareFoot.result.value, 10),
-    garageSquareFoot: parseInt(garageSquareFoot.result.value || '0', 10)
-  }
-}
-
-export const getParams = function({overHangValue, dimensions, windows}) {
+export const getParams = ({overHangValue, dimensions, windows}) => {
   return  {
     windows: parseInt(windows.result.value || '0', 10),
     overHang: overHang[overHangValue.result.value],
@@ -19,10 +9,10 @@ export const getParams = function({overHangValue, dimensions, windows}) {
   }
 }
 
-export const calculate = function(stepValues) {
+export const calculate = (stepValues) => {
   const params = getParams({
     windows: stepValues.windows.result.windows,
-    overHangValue: stepValues['over-hang'],
+    overHangValue: stepValues.overHang,
     dimensions: stepValues.dimensions,
   })
   const {dimensions} = params
@@ -31,5 +21,5 @@ export const calculate = function(stepValues) {
   const surfaceWithGarage = discountedSurfaceSize + dimensions.garageSquareFoot
   const overHangedPrice = params.overHang !== 'noOverHang' ? surfaceWithGarage * overHangRatio : surfaceWithGarage
   const windowPriced = (params.windows * windowPrice) + overHangedPrice
-  return {value: windowPriced}
+  return {value: windowPriced, price: windowPriced}
 }

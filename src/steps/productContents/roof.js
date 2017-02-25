@@ -57,7 +57,7 @@ export const roofContent = {
       }
     ]
   },
-  'over-hang': {
+  'overHang': {
     buttons: [
       {
         text: "No over hang",

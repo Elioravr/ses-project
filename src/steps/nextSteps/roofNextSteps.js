@@ -1,7 +1,7 @@
 import ButtonSection from 'components/ButtonSection';
 import QuestionSection from 'components/QuestionSection';
 import SummarySection from 'components/SummarySection'
-import {roofContent} from './productContents/roof';
+import {roofContent} from '../productContents/roof';
 
 export default [
   {
@@ -25,13 +25,13 @@ export default [
     buttons: roofContent['slope'].buttons
   },
   {
-    sectionName: "over-hang",
+    sectionName: "overHang",
     sectionComponent: ButtonSection,
     labels: {
       mainTitle: "Roof Over Hang",
       subTitle: "Please choose your roof over hang"
     },
-    buttons: roofContent['over-hang'].buttons
+    buttons: roofContent.overHang.buttons
   },
   {
     sectionName: "dimensions",

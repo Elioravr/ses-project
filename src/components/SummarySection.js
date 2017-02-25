@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import {FormattedNumber} from 'react-intl';
 import {getStepValues} from 'store/reducers/selectors'
 import 'style/SummarySection.scss'
 
@@ -9,13 +10,13 @@ export class SummarySection extends Component {
   }
 
   render() {
-    const { stepValues } = this.props
-    const { summary } = stepValues
-    const { result } = summary
+    const {stepValues} = this.props
+    const {summary} = stepValues
+    const {result} = summary
     return (
       <div className="summary-container">
         <label>Total:</label>
-        <span>{result.value}</span>
+        <FormattedNumber value={result.value} style="currency" currency="USD" />
       </div>
     )
   }

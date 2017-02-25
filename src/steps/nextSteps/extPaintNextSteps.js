@@ -1,19 +1,18 @@
 import ButtonSection from 'components/ButtonSection';
 import QuestionSection from 'components/QuestionSection';
 import SummarySection from 'components/SummarySection'
-import {extPaintContent} from './productContents/exteriorPaint';
+import {extPaintContent} from '../productContents/exteriorPaint';
 
 export default [
   {
-    sectionName: "which",
-    hasBorderEffect: true,
-    getTitleFromLastValue: true,
+    sectionName: "paint-type",
     sectionComponent: ButtonSection,
+    hasBorderEffect: true,
     labels: {
-      mainTitle: "Which?",
-      subTitle: "Which kind of roof would you like to renovate in your house?"
+      mainTitle: "Paint Type",
+      subTitle: "Please choose your paint type"
     },
-    buttons: extPaintContent['which'].buttons
+    buttons: extPaintContent['paint-type'].buttons
   },
   {
     sectionName: "dimensions",
@@ -25,29 +24,20 @@ export default [
     questions: extPaintContent['dimensions'].questions
   },
   {
-    sectionName: "over-hang",
+    sectionName: "overHang",
     sectionComponent: ButtonSection,
     labels: {
       mainTitle: "Roof Over Hang",
       subTitle: "Please choose your roof over hang"
     },
-    buttons: extPaintContent['over-hang'].buttons
-  },
-  {
-    sectionName: "paint-type",
-    sectionComponent: ButtonSection,
-    labels: {
-      mainTitle: "Paint Type",
-      subTitle: "Please choose your paint type"
-    },
-    buttons: extPaintContent['paint-type'].buttons
+    buttons: extPaintContent.overHang.buttons
   },
   {
     sectionName: "windows",
     sectionComponent: QuestionSection,
     labels: {
       mainTitle: "Windows",
-      subTitle: "How many windows would you like to paint?"
+      subTitle: "How many windows do you have in you're house?"
     },
     questions: extPaintContent['windows'].questions
   },

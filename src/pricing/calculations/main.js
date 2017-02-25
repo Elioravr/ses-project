@@ -6,7 +6,7 @@ export const mainCalculator = function(stepValues) {
   switch (whatValue) {
     case 'roof':
       return calculateRoof(stepValues)
-    case 'exterior-paint':
+    case 'exteriorPaint':
       return calculateExtPaint(stepValues)
     default:
       return {}

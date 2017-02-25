@@ -58,7 +58,7 @@ export const extPaintContent = {
       },
     ]
   },
-  'over-hang': {
+  'overHang': {
     buttons: [
       {
         text: "No over hang",
@@ -109,8 +109,7 @@ export const extPaintContent = {
     questions: [
       {
         name: 'windows',
-        optional: true,
-        text: 'How many windows to paint?',
+        text: 'How many windows needs to be painted?',
         options: [
           {text: '1', value: 1},
           {text: '2', value: 2},
