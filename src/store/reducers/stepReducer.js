@@ -1,5 +1,6 @@
 import {omit} from 'lodash';
 import {steps} from 'steps'
+import {getSummaryValues} from './reducerHelper'
 
 const initialState = {
   steps: steps,
@@ -12,6 +13,8 @@ export default (state = initialState, action) => {
     case "MOVE_TO_NEXT_STEP": {
       const {stepValues} = state
       const {lastStepResult, sectionName, mainTitle, nextSteps} = action.payload
+      const currentStepIndex = state.currentStepIndex + 1
+      const steps = [...state.steps, ...nextSteps]
       const updatedStepValues = {
         ...stepValues,
         [sectionName]: {
@@ -20,12 +23,18 @@ export default (state = initialState, action) => {
         }
       }
 
+      const summaryValues = getSummaryValues(steps, currentStepIndex, updatedStepValues)
+      if (summaryValues) {
+        updatedStepValues.summary = {result: summaryValues}
+      }
+
       return {
         ...state,
-        currentStepIndex: state.currentStepIndex + 1,
+        currentStepIndex,
         lastStepResult,
         stepValues: updatedStepValues,
-        steps: [...state.steps, ...nextSteps]
+        steps,
+        summaryValues
       }
     }
 
